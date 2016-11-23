@@ -1,0 +1,59 @@
+{
+  "env": {
+    "browser": true,
+    "es6": true
+  },
+  "extends": [
+    "eslint:recommended"<% if(includeReact) { %>,
+    "plugin:react/recommended" <% } %>
+  ],
+  "parser": "babel-eslint",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "experimentalObjectRestSpread": true,
+      "jsx": true
+    },
+    "ecmaVersion": 6,
+    "sourceType": "module"
+  },
+  <% if(includeReact) { %>
+  "plugins": [
+      "react"
+  ],
+  <% } %>
+  "rules": {
+    <% if(includeReact) { %>
+    "react/prop-types": 0,
+    <% } %>
+    "brace-style": [
+      2,
+      "1tbs",
+      {
+        "allowSingleLine": true
+      }
+    ],
+    "eol-last": 2,
+    "indent": [
+      "error", "tab",
+      {
+        "SwitchCase": 1
+      }
+    ],
+    "no-console": 0,
+    "no-unused-vars": [
+      1
+    ],
+    "quotes": [
+      1,
+      "single"
+    ],
+    "space-before-function-paren": [
+      2,
+      "never"
+    ],
+    "space-in-parens": [
+      2,
+      "never"
+    ]
+  }
+}
