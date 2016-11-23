@@ -26,6 +26,20 @@ Then generate your new project:
 yo tartiflette
 ```
 
+## Use
+
+Start
+
+```bash
+npm start
+```
+
+Build
+
+```bash
+npm build
+```
+
 ## License
 
 MIT © [Charles Perinet](www.charles-perinet.fr)
