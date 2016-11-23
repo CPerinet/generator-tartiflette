@@ -41,7 +41,7 @@
       "mocha": true
     }
   },
-  "repository": "CPerinet/generator-capp",
+  "repository": "CPerinet/generator-tartiflette",
   "scripts": {
     "prepublish": "gulp prepublish",
     "test": "gulp"
