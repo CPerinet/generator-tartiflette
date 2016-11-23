@@ -1,5 +1,15 @@
 # generator-tartiflette [![NPM version][npm-image]][npm-url]
-> 
+
+Yeoman Generator for Webapp
+
+## Out of the box
+- Webpack
+- SCSS
+- ES6
+
+## Options
+- React
+- Express server ( comming soon )
 
 ## Installation
 
@@ -16,17 +26,10 @@ Then generate your new project:
 yo tartiflette
 ```
 
-## Getting To Know Yeoman
-
- * Yeoman has a heart of gold.
- * Yeoman is a person with feelings and opinions, but is very easy to work with.
- * Yeoman can be too opinionated at times but is easily convinced not to be.
- * Feel free to [learn more about Yeoman](http://yeoman.io/).
-
 ## License
 
 MIT © [Charles Perinet](www.charles-perinet.fr)
 
 
-[npm-image]: https://badge.fury.io/js/generator-tartiflette.svg
 [npm-url]: https://npmjs.org/package/generator-tartiflette
+[npm-image]: http://img.shields.io/npm/v/generator-tartiflette.svg
