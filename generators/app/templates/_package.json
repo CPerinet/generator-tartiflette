@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server",
     "build": "webpack",
     "test": "echo Hello you, this is a test !"
+
+    <% if(includeServer) { %>,
+      "serve": "nodemon src/server.js",
+      "watch": "webpack --watch"
+    <% } else { %>,
+      "start": "webpack-dev-server"
+    <% } %>
   },
   "dependencies": {
     "webpack": "^1.13.2",
@@ -21,12 +27,23 @@
     "css-loader": "^0.25.0",
     "style-loader": "^0.13.1",
     "sass-loader": "^4.0.2",
-    "stylelint-webpack-plugin": "^0.4.0"<% if(includeReact) { %>,
+    "stylelint-webpack-plugin": "^0.4.0"
+
+    <% if(includeReact) { %>,
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
     "react-router": "^3.0.0",
     "eslint-plugin-react": "^6.6.0",
     "babel-preset-react": "^6.16.0"
+    <% } %>
+    
+    <% if(includeServer) { %>,
+    "express": "^4.14.0",
+    "mongoose": "^4.7.1",
+    "path": "^0.12.7",
+    "morgan": "^1.7.0",
+    "body-parser": "^1.15.2",
+    "nodemon": "^1.11.0"
     <% } %>
   }
 }

@@ -11,30 +11,24 @@ module.exports = yeoman.Base.extend({
     ));
 
     var prompts = [
-    // {
-    //   type: 'confirm',
-    //   name: 'nice',
-    //   message: 'Are you a nice guy?',
-    //   default: true
-    // },
-    {
-      type: 'input',
-      name: 'name',
-      message: 'Name?',
-      default: "my-project"
-    },
-    {
-      type: 'confirm',
-      name: 'includeReact',
-      message: 'React?',
-      default: true
-    }
-    // ,{
-    //   type: 'confirm',
-    //   name: 'includeServer',
-    //   message: 'Server?',
-    //   default: true
-    // }
+      {
+        type: 'input',
+        name: 'name',
+        message: 'Name?',
+        default: "my-project"
+      },
+      {
+        type: 'confirm',
+        name: 'includeReact',
+        message: 'React?',
+        default: true
+      },
+      {
+        type: 'confirm',
+        name: 'includeServer',
+        message: 'Server?',
+        default: true
+      }
     ];
 
     return this.prompt(prompts).then(function (props) {
@@ -50,7 +44,8 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('package.json'),
         {
           name : this.props.name,
-          includeReact : this.props.includeReact
+          includeReact : this.props.includeReact,
+          includeServer : this.props.includeServer
         }
       )
     },
@@ -103,7 +98,8 @@ module.exports = yeoman.Base.extend({
         this.destinationPath('src/modules/Home.js'),
         {
           name : this.props.name,
-          includeReact : this.props.includeReact
+          includeReact : this.props.includeReact,
+          includeServer : this.props.includeServer
         }
       )
     },
@@ -170,6 +166,16 @@ module.exports = yeoman.Base.extend({
         this.fs.copy(
           this.templatePath('src/server.js'),
           this.destinationPath('src/server.js')
+        )
+
+        this.fs.copy(
+          this.templatePath('src/api/routes.js'),
+          this.destinationPath('src/api/routes.js')
+        )
+
+        this.fs.copy(
+          this.templatePath('src/api/schemas/hello.js'),
+          this.destinationPath('src/api/schemas/hello.js')
         )
 
       }

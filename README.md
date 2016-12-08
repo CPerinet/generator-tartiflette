@@ -9,7 +9,7 @@ Yeoman Generator for Webapp
 
 ## Options
 - React
-- Express server ( comming soon )
+- Express server + MongoDB
 
 ## Installation
 
@@ -28,13 +28,22 @@ yo tartiflette
 
 ## Use
 
-Start
+### Start
+
+Without server
 
 ```bash
 npm start
 ```
+With server
 
-Build
+```bash
+mongod --dbpath <PATH_TO_DB>
+npm run serve
+npm run watch
+```
+
+### Build
 
 ```bash
 npm build
