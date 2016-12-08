@@ -1,2 +1,7 @@
+logs
+*.log
+npm-debug.log*
 node_modules
-coverage
+.npm
+.eslintcache
+.DS_Store
