@@ -2,14 +2,22 @@
 
 Yeoman Generator for Webapp
 
+![Tarti logo](tarti.png)
+
 ## Out of the box
 - Webpack
 - SCSS
-- ES6
+	- Linter
+	- [Fontawesome](http://fontawesome.io/)
+	- [Gridle](http://gridle.org/)
+- ES6 + Linter
 
 ## Options
-- React
-- Express server + MongoDB
+- [React](https://facebook.github.io/react/)
+- [React/Router](https://github.com/ReactTraining/react-router)
+- Server ([Express](http://expressjs.com/))
+- API
+- Database ([MongoDB](https://www.mongodb.com/)) + [Mongoose](http://mongoosejs.com/)
 
 ## Installation
 
@@ -28,31 +36,24 @@ yo tartiflette
 
 ## Use
 
-### Start
-
-Without server
-
+Run application in production mode
 ```bash
-npm start
-```
-With server
-
-```bash
-mongod --dbpath <PATH_TO_DB>
-npm run serve
-npm run watch
+npm run start
 ```
 
-### Build
-
+Run application in development mode
 ```bash
-npm build
+npm run dev
+```
+
+Build application
+```bash
+npm run build
 ```
 
 ## License
 
 MIT © [Charles Perinet](www.charles-perinet.fr)
-
 
 [npm-url]: https://npmjs.org/package/generator-tartiflette
 [npm-image]: http://img.shields.io/npm/v/generator-tartiflette.svg

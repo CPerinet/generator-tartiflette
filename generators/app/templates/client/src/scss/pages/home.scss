@@ -1,0 +1,105 @@
+.home-page {
+	min-height: 100vh;
+	min-width: 100vw;
+
+	hr {
+		display: block;
+		margin: 35px auto;
+		width: 20px;
+		height: 1px;
+		background: $color-neutral-300;
+		border: none;
+	}
+
+	.content {
+		@include gridle(10 tablet 12 mobile 16);
+		@include gridle(grid-centered);
+
+		position: relative;
+		padding: 60px 0 0;
+		margin: 110px 0 15px;
+		background: white;
+		box-shadow: 0 0 3px rgba(black, 0.1);
+		text-align: center;
+	}
+
+	.credits {
+		@include gridle(8 tablet 12 mobile 14);
+		@include gridle(grid-centered);
+
+		margin-bottom: 40px;
+		text-align: center;
+
+		a {
+			color: $color-dark;
+			opacity: 0.6;
+
+			&:hover {
+				opacity: 1;
+			}
+		}
+	}
+
+	.logo {
+		@extend .alignX;
+
+		top: -80px;
+		width: 130px;
+	}
+
+	.title {
+		@extend .h1;
+
+		padding: 0 30px;
+
+		strong {
+			font-weight: bold;
+		}
+	}
+
+	.launch {
+		text-align: left;
+
+		p {
+			padding: 0 30px;
+			margin-bottom: 10px;
+		}
+
+		code {
+			display: block;
+			margin-bottom: 20px;
+			padding: 15px 30px;
+			background: $color-neutral-10;
+			font-family: "Courier New", Courier, monospace;
+		}
+	}
+
+	.list {
+		padding: 0 30px;
+		margin-bottom: 10px;
+
+		li {
+			display: flex;
+			padding: 20px 0;
+			justify-content: space-between;
+			align-items: center;
+			border-top: 1px solid $color-neutral-50;
+
+			i {
+				font-size: 20px;
+			}
+
+			.fa-check {
+				color: $color-info;
+			}
+
+			.fa-times {
+				color: $color-neutral-500;
+			}
+
+			&:first-child {
+				border-top: none;
+			}
+		}
+	}
+}

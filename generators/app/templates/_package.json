@@ -1,20 +1,24 @@
 {
-  "name": "<%= name %>",
+  "name": "<%= props.name %>",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "build": "webpack",
-    "test": "echo Hello you, this is a test !"
-
-    <% if(includeServer) { %>,
-      "serve": "nodemon src/server.js",
-      "watch": "webpack --watch"
-    <% } else { %>,
-      "start": "webpack-dev-server"
-    <% } %>
+  "scripts": {<% if(props.includeClient) { %><% if(props.includeDB) { %>
+    "dev": "open http://localhost:9000/ && mongod --dbpath=./data --port 27017 | nodemon ./server | webpack --watch",
+    "start": " webpack -p && mongod --dbpath=./data --port 27017 | node ./server",
+    "build": "webpack -p"<% } else if(props.includeServer) { %>
+    "dev": "open http://localhost:9000/ && nodemon ./server | webpack --watch",
+    "start": "webpack -p && node ./server",
+    "build": "webpack -p"<% } else { %>
+    "dev": "open http://localhost:8080/ && webpack-dev-server  --inline  --content-base ./client/static/",
+    "start": "webpack -p && http-server ./client/static/",
+    "build": "webpack -p"<% } %><% } else { %><% if(props.includeDB) { %>
+    "dev": "mongod --dbpath=./data --port 27017 | nodemon ./server",
+    "start": "mongod --dbpath=./data --port 27017 | node ./server"<% } else if(props.includeServer) { %>
+    "dev": "nodemon ./server",
+    "start": "node ./server"<% } else { %>
+    "dev": "echo Nothing to do",
+    "start": "echo Nothing to do"<% } %><% } %>
   },
-  "dependencies": {
+  "dependencies": {<% if(props.includeClient) { %>
     "webpack": "^1.13.2",
     "webpack-dev-server": "^1.16.2",
     "babel-loader": "^6.2.7",
@@ -27,23 +31,21 @@
     "css-loader": "^0.25.0",
     "style-loader": "^0.13.1",
     "sass-loader": "^4.0.2",
-    "stylelint-webpack-plugin": "^0.4.0"
-
-    <% if(includeReact) { %>,
+    "stylelint-webpack-plugin": "^0.4.0",
+    "file-loader": "^0.9.0",
+    "lodash": "^4.17.2"<% } %><% if(props.includeReact) { %>,
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^3.0.0",
     "eslint-plugin-react": "^6.6.0",
-    "babel-preset-react": "^6.16.0"
-    <% } %>
-    
-    <% if(includeServer) { %>,
+    "babel-preset-react": "^6.16.0"<% } %><% if(props.includeReactRouter) { %>,
+    "react-router": "^3.0.0"<% } %><% if(props.includeServer) { %><% if(props.includeClient) { %>,<% } %>
     "express": "^4.14.0",
-    "mongoose": "^4.7.1",
     "path": "^0.12.7",
     "morgan": "^1.7.0",
     "body-parser": "^1.15.2",
-    "nodemon": "^1.11.0"
-    <% } %>
+    "nodemon": "^1.11.0"<% } else if (props.includeClient) { %>,
+    "http-server": "^0.9.0"<% } %><% if(props.includeDB) { %>,
+    "mongoose": "^4.7.1",
+    "mongodb": "^2.2.21"<% } %>
   }
 }

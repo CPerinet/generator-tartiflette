@@ -2,19 +2,19 @@ var StyleLintPlugin = require('stylelint-webpack-plugin');
 
 const config = {
   entry: {
-    app: ['./src/index.js']
+    app: ['./client/src/index.js']
   },
 
   output: {
     filename: 'bundle.js',
-    path: './src/static'
+    path: './client/static'
   },
 
   module: {
     loaders: [
       {
         test: /\.js$/,
-        <% if (includeReact) {  %>
+        <% if (props.includeReact) {  %>
           loaders: ['babel?presets[]=es2015&presets[]=react', 'eslint-loader'],
         <% } else { %>
           loaders: ['babel?presets[]=es2015', 'eslint-loader'],  
@@ -24,18 +24,18 @@ const config = {
       {
         test: /\.scss$/,
         loaders: ["style", "css", "sass"]
-      }
+      },
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
+      {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/font-woff"},
+      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader?mimetype=application/octet-stream"},
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file-loader"}
     ]
   },
 
   plugins: [
     new StyleLintPlugin()
-  ],
-
-  devServer: {
-    inline: true,
-    contentBase: "./src/static"
-  }
+  ]
 }
 
 module.exports = config

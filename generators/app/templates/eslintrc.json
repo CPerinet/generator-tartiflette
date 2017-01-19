@@ -4,7 +4,7 @@
     "es6": true
   },
   "extends": [
-    "eslint:recommended"<% if(includeReact) { %>,
+    "eslint:recommended"<% if(props.includeReact) { %>,
     "plugin:react/recommended" <% } %>
   ],
   "parser": "babel-eslint",
@@ -16,13 +16,13 @@
     "ecmaVersion": 6,
     "sourceType": "module"
   },
-  <% if(includeReact) { %>
+  <% if(props.includeReact) { %>
   "plugins": [
       "react"
   ],
   <% } %>
   "rules": {
-    <% if(includeReact) { %>
+    <% if(props.includeReact) { %>
     "react/prop-types": 0,
     <% } %>
     "brace-style": [
