@@ -14,15 +14,15 @@
 	<% } else { %>
 	<script src="bundle.js"></script>
 
-	<div className="home-page">
-		<div className="row">
-			<div className="content">
-				<img src="assets/img/tarti.svg" alt="" className="logo"/>
-				<h1 className="title">Your <strong>Tartiflette</strong> application is ready !</h1>
+	<div class="home-page">
+		<div class="row">
+			<div class="content">
+				<img src="assets/img/tarti.svg" alt="" class="logo"/>
+				<h1 class="title">Your <strong>Tartiflette</strong> application is ready !</h1>
 				
 				<hr />
 
-				<div className="launch">
+				<div class="launch">
 					<p>Run application in production mode</p>
 					<code>npm run start</code>
 					<p>Run application in development mode</p>
@@ -31,18 +31,18 @@
 
 				<hr />
 
-				<ul className="list">
-					<li><p>React</p><% if (props.includeReact) { %><i className="fa fa-check" aria-hidden="true"><% } else { %><i className="fa fa-times" aria-hidden="true"><% } %></i></li>
-					<li><p>React/Router</p><% if (props.includeReactRouter) { %><i className="fa fa-check" aria-hidden="true"><% } else { %><i className="fa fa-times" aria-hidden="true"><% } %></i></li>
-					<li><p>Express Server</p><% if (props.includeServer) { %><i className="fa fa-check" aria-hidden="true"><% } else { %><i className="fa fa-times" aria-hidden="true"><% } %></i></li>
-					<li><p>API</p><% if (props.includeAPI) { %><i className="fa fa-check" aria-hidden="true"><% } else { %><i className="fa fa-times" aria-hidden="true"><% } %></i></li>
-					<li><p>MongoDB</p><% if (props.includeDB) { %><i className="fa fa-check" aria-hidden="true"><% } else { %><i className="fa fa-times" aria-hidden="true"><% } %></i></li>
+				<ul class="list">
+					<li><p>React</p><% if (props.includeReact) { %><i class="fa fa-check" aria-hidden="true"><% } else { %><i class="fa fa-times" aria-hidden="true"><% } %></i></li>
+					<li><p>React/Router</p><% if (props.includeReactRouter) { %><i class="fa fa-check" aria-hidden="true"><% } else { %><i class="fa fa-times" aria-hidden="true"><% } %></i></li>
+					<li><p>Express Server</p><% if (props.includeServer) { %><i class="fa fa-check" aria-hidden="true"><% } else { %><i class="fa fa-times" aria-hidden="true"><% } %></i></li>
+					<li><p>API</p><% if (props.includeAPI) { %><i class="fa fa-check" aria-hidden="true"><% } else { %><i class="fa fa-times" aria-hidden="true"><% } %></i></li>
+					<li><p>MongoDB</p><% if (props.includeDB) { %><i class="fa fa-check" aria-hidden="true"><% } else { %><i class="fa fa-times" aria-hidden="true"><% } %></i></li>
 				</ul>
 			</div>
 		</div>
 
-		<div className="row">
-			<div className="credits">
+		<div class="row">
+			<div class="credits">
 				<p><a href="https://twitter.com/CPerinet" target="_blank">@CPerinet</a></p>
 			</div>
 		</div>
