@@ -62,7 +62,7 @@ app.listen(PORT, () => {
  *
  */
 
-mongoose.connect('mongodb://localhost/<%= props.name %>', { user: '', pass: '' })
+mongoose.connect('mongodb://localhost/app', { user: '', pass: '' })
 
 var db = mongoose.connection;
 
